@@ -1,4 +1,4 @@
-import './imageAdd.css';
+import './ImageAdd.css';
 import { RiFolderImageLine } from "react-icons/ri";
 import useFile from "../../Hooks/UseFile";
 import { useEffect } from "react";
