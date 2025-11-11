@@ -1,4 +1,4 @@
-import '..Workspace-components/workspaceComponent.css'
+import '..Workspace-components/Workspace-components/workspaceComponent.css'
 import { RiHome6Line } from "react-icons/ri";
 import DeleteWorkspace from './DeleteWorkspaceComponent';
 
