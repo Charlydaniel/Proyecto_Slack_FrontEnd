@@ -1,0 +1,230 @@
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#root{
+    
+    width: 100%;
+}
+button{
+  border: none;
+}
+footer{
+  width: 100%;
+}
+
+ul{
+ font-size: 12px;
+ color: rgb(68, 68, 68);
+}
+
+.icon_container{
+  display: flex;
+  flex-direction: row;
+  width: 120px;
+  height: 58px;
+  justify-content: center;
+  padding: 15px;
+}
+
+.error-body {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  height: 100vh;            
+  background-image: url('https://wallpapercave.com/wp/wp3917267.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.error-menu .error-menu-buttons{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: end;
+  gap: 10px;
+  align-items: center;
+}
+.error-menu {
+  width: 80%;
+}
+.error-menu-buttons{
+  gap: 10px;
+}
+
+.button-menu-ne{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 5px;
+}
+.button-menu-ne-text{
+  display: flex;
+  align-items: center;
+}
+.ne-button{
+
+  background-color: #71616f;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  
+}
+.button-menu{
+  height: 50px;
+  width: 60px;
+}
+.button-menu{
+ background-color: rgba(255, 255, 255, 0.158);
+ border-radius: 5px;
+ height: 35px;
+}
+.button-menu:hover{
+ background-color: rgba(233, 233, 233, 0.349);
+}
+.button-menu-ne:hover{
+  background-color: rgb(233, 233, 233);
+}
+.error-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.473);
+    height: 80px;
+    position: fixed;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 100%;
+    padding: 20px;
+    justify-content: space-between;
+}
+.error-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: rgba(255, 255, 255, 0.897);
+  border: 1px solid #ddd;
+  padding: 20px 30px;
+  border-radius: 8px;
+  height: 200px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-icon {
+  font-size: 40px;
+  color: red;
+}
+
+.error-message {
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
+}
+.footer-options-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
+  gap: 20px;
+  padding-top: 20px;
+}
+.footer-options-list-ul{
+  display: flex;
+  flex-direction: column;
+  
+}
+.li-title{
+  font-weight: 600;
+}
+.--red{
+  color: #fe4251;
+}
+.--green{
+  color: #0aad6f;
+}
+.--blue{
+  color: #7f6bc6;
+}
+.minsize_button{
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background:none;
+  border: none;
+  cursor: pointer;
+}
+.minsize_button:hover{
+  background-color: rgba(243, 240, 240, 0.658);
+}
+.mobile-menu {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease;
+}
+.mobile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.mobile-menu li {
+  padding: 10px 20px;
+}
+
+.mobile-menu li:hover {
+  background-color: #f5f5f5;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+@media(max-width: 670px){
+.error-menu{
+  display: none;
+}
+.minsize_button{
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+@media (max-width: 670px) {
+  .minsize_button {
+    display: block;
+  }
+}
+
+@media (max-width:400px){
+  .footer-options-list{
+    display: none;
+  }
+  .error-container{
+    width: 80%;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+}
+
+
+

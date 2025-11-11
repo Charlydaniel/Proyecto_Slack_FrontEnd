@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --radius_buttons:8px;
+    --common_border: 1px solid #ccc;
+}
+
+.--litle-size{
+  display: none;
+}
+
+input{
+   outline: none;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+input:focus {
+  border: 1px solid #4a90e2; 
+  box-shadow: 0 0 5px 1px #4a90e2;
+}
+a{
+  text-decoration: none;
+  color: #1264a3;
+}
+a:hover{
+ text-decoration: underline;
+}
+
+.veri_small_text{
+  font-size: 12px;
+  font-weight: 8px;
+}
+
+.login-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Outfit", Arial, sans-serif;
+  color: #1d1d1d;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.header-login{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content:space-between;
+    height: 100px;
+    padding: 25px 0 0 0;
+}
+.login-logo{
+    height: 22px;
+}
+.header-login-section{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding: 15px;
+    width: 100%;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.header-login-icon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.login-logo {
+  width: 120px; 
+  margin-bottom: 20px;
+  height: 25px;
+}
+
+.body-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.login-title {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  font-size: 23px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.login-subtitle {
+  font-size: 15px;
+  color: #555;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 50;
+  width: 700px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px; 
+}
+
+.imputs-containers{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+}
+.login-form input {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border:var(--common_border) ;
+  border-radius: var(--radius_buttons);
+  height: 35px;
+  font-size: 15px;
+}
+
+.login-button {
+  width: 100%;
+  background-color: #4a154b;
+  color: white;
+  border: none;
+  border-radius: var(--radius_buttons);
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  height: 42px;
+  text-align: center;
+}
+
+.login-button:hover {
+  background-color: #611f69;
+}
+.linea-texto-linea{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 350px;
+  justify-content: space-around;
+  height: 60px;
+  font-size: 15px;
+}
+.linea{
+  flex: 1;
+  height: 1px;
+  background-color: #cfcfcf;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.other-connections_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0 20px;
+    gap: 10px;
+}
+.other-connections_buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 100%;
+    background-color: white;
+    border-radius: var(--radius_buttons);
+    border: var(--common_border);
+    gap: 8px;
+    font-weight: 500;
+    font-family: "Outfit", Arial, sans-serif;
+    font-size: 15px;
+    box-shadow: 0px 0px 9px -2px rgba(117,107,107,0.75);
+}
+footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+}
+.footer-support{
+  text-align: center;
+  width: 100%;
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+@media(max-width: 790px){
+  .header-login{
+    height: 120px;
+  }
+}
+@media(max-width: 670px){
+.login-title{
+  width: 500px;
+}
+.login-subtitle{
+  width: 500px;
+}
+}
+
+@media(max-width:649px){
+
+  .header-login-section.--section-header-left {
+    display: none !important;
+  }
+    .header-login-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    justify-content: end;
+    text-align: end;
+    padding: 0;
+    margin: 0;
+    width: 120px;
+  }
+  .veri_small_text{
+    display: none;
+  } 
+
+  .header-login-icon{
+    justify-content: start;
+  }
+  .header-login-create-account{
+    width: 200px;
+  }
+    .header-login{
+    height: 63px;
+    margin: 0;
+    padding: 0 10px;
+  }
+  .login-title{
+  font-size: 15px;
+}
+.login-form{
+  max-width: 600px; 
+}
+}
+
+@media(max-width:500px){
+  
+  .login-subtitle,
+  .login-title{
+    width: 400px;
+  }
+  
+  .login-button{
+    height: 50px;
+  }
+  input{
+    height:100px;
+  }
+
+}
+@media (max-width: 400px) {
+  .body-login {
+    max-width: 90%;
+  }
+  .--litle-size{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .--max-size{
+    display: none;
+  }
+
+}
+@media (max-width: 350px) {
+  .login-title,
+  .login-subtitle,
+  .imputs-containers,
+  .linea-texto-linea,
+  footer {
+    width: 90%;
+    text-align: center;
+  }
+
+  .login-title {
+    font-size: 14px;
+  }
+
+  .login-subtitle {
+    font-size: 12px;
+  }
+
+  .login-form input {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .login-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .other-connections_container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .other-connections_buttons {
+    width: 90%;
+  }
+
+  span{
+    font-size: 10px;
+  }
+  .header-login{
+    padding: 0;
+    justify-content: space-between;
+  }
+  .login-subtitle{
+    display: none;
+  }
+  .--litle-size{
+    display: flex;
+  }
+  .header-login-section{
+    width: 80px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 250px) {
+
+  .login-subtitle {
+    font-size: 11px;
+  }
+
+  .imputs-containers,
+  .linea-texto-linea,
+  .other-connections_buttons,
+  footer {
+    width: 100%;
+  }
+
+  .login-button {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.email-data{
+  font-size: 20p;
+  color: rgb(14, 12, 12);
+}
+button:disabled{
+
+  display: none;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.content-button-mails{
+    display: flex;
+    flex-direction: row;
+}
+.delete-mail{
+    display: flex;
+    width: 10px;
+    height: 25px;
+    color: #4b7cb4b2;
+    font-size: 10px;
+}
+
+.member-button{
+    width: auto;
+    height: 25px;
+    padding: 5px 0;
+}
+.mail-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:5px;
+    max-width: 100%;
+    height: 120px;
+    background-color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border:#532755 1px solid;
+    border-radius: 5px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+/* ancho del scrollbar */
+.mail-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* fondo de la barra */
+.mail-container::-webkit-scrollbar-track {
+  background: #f1f1f1;    
+  border-radius: 8px;
+}
+
+/* parte que se mueve (thumb) */
+.mail-container::-webkit-scrollbar-thumb {
+  background-color:#532755;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+/* cuando pasás el mouse encima */
+.mail-container::-webkit-scrollbar-thumb:hover {
+  background-color:#532755;
+}
+
+
+.custom-textarea {
+  width: 100%;
+  height: 100px;
+  padding: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  resize: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.add-image-container{
+    display: flex;
+    flex-direction: column;
+}
+.submit-area{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mail-button{
+    position: absolute;
+    left: 12px;
+    background-color: #f8e7fa;
+    width: auto;
+    padding: 5px;
+}
+.custom-textarea:focus{
+  box-shadow: 0 0 0 1px #6d97e4;
+  outline: none;
+}
+.--red{
+    color: red;
+}
+.--green{
+    color: rgb(67, 167, 0);
+}
+.right-container{
+    background-color: white;
+    padding-right: 10px;
+    border-radius: 0 10px 10px 0;
+    width: 100%;
+}
+
+
+.right-container-sup{
+    display: flex;
+    height: 100px;
+    background-color: white;
+    width: 100%;
+}
+.rigth-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 60px;
+    gap: 15px;
+    background-color: white;
+}
+.right-title , .right-paragraph{
+    display: flex;
+    flex-direction: row;
+}
+.right-title{
+    font-size: 50px;
+    font-weight: 600;
+}
+.right-data-section{
+    display: flex;
+}
+.container{
+    display: flex;
+    align-items: row;
+    width: 100%;
+    height: 100%;
+    padding-right: 7px;
+    background-color: #532755;
+    padding-bottom: 5px;
+}
+input{
+  outline: none;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+.notmember-message{
+  display: flex;
+  width: 600px;
+  padding-bottom: 10px;
+  font-size: 15px;
+  color: #8b8c8f;
+}
+input:focus {
+  border: 1px solid #4a90e2; 
+  box-shadow: 0 0 5px 1px #4a90e2;
+}
+
+input {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border: 1px gray solid ;
+  border-radius: 7px;
+  height: 35px;
+  font-size: 15px;
+}
+.right-data-button{
+    height: 35px;
+    width: 120px;
+    border-radius: 7px;
+    font-size: 15px;
+    color: rgb(68, 67, 67);
+    font-weight: 600;
+    background-color: rgb(231, 226, 226);
+}
+.right-data-input-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    color: gray;
+}
+.right-data-span-max-text{
+    position: absolute;
+    top: 0;
+    padding: 8px 10px;
+    height: 35px;
+    font-size: 15px;
+}
+.left-container{
+    display: flex;
+    width: 30%;
+    height: 100%;
+    background-color: #532755;
+    border-radius: 10px 0 0 10px;
+}
+@media(max-width:850px){
+
+.notmember-message{
+  width: 100%;
+}
+.rigth-content{
+  padding-right: 20px;
+}
+}
+
+@media(max-width:1150px){
+
+  .right-title{
+    font-size: 40px;
+  }
+
+}
+@media(max-width:750px){
+
+  .rigth-content{
+    padding: 20px;
+  }
+
+  .notmember-message{
+  font-size: 12px;
+}
+
+
+}
+
+@media(max-width:600px){
+    
+  .right-title{
+    font-size: 30px;
+  }
+  .right-paragraph{
+    font-size: 12px;
+  }
+  .rigth-content{
+    height: 100%;
+    gap: 20px;
+  }
+  .right-container-sup{
+    height: 20px;
+  }
+input , .right-data-span-max-text{
+    font-size: 10px;
+}
+.left-container{
+    display: none;
+}
+}
+@media(max-width:600px){
+  .right-title{
+    font-size: 20px;
+  }
+}
+@media(max-width:450px) {
+.notmember-message{
+  font-size: 10px;
+}
+.right-container{
+  padding: 0;
+}
+.rigth-content{
+  padding-right:10p;
+}
+}
