@@ -1,18 +1,30 @@
 import './workspace-nav.css'
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { RiChatSmile3Line } from "react-icons/ri";
 import { MdOutlineHeadset } from "react-icons/md";
 import { FaWpforms } from "react-icons/fa6";
 import { MdOutlineStarOutline } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
 import { LuFilePenLine } from "react-icons/lu";
+import { getChanelsList } from '../../../services/ChannelService';
+import useFetch from '../../../Hooks/UseFetch';
+import { CreateWorkspaceContext } from '../../../Contexts/CreateWorkspaceContext';
 
 
 export default function WorkspaceNavComponent(){
 
     const [openChannels, setOpenChannels] = useState(false)
     const [openChats, setOpenChats] = useState(false)
+    const { sendRequest, loading, response, error } = useFetch()
 
+    const {new_workspace,name,members,user,image,setImageUrl,setName,setUser,setMembers
+            ,setNewWorkspace} = useContext(CreateWorkspaceContext)
+
+    useEffect(
+        ()=>{
+            const result = sendRequest(getChanelsList())
+        },[]
+    )
 
     return(
     

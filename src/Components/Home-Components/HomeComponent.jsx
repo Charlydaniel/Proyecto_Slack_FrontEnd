@@ -8,13 +8,16 @@ import ErrorComponent from "../Error-components/ErrorComponent";
 import './HomeComponent.css'
 import { COMPONENTS } from "../../constants/commonComponents";
 import { useNavigate } from "react-router-dom";
+import { CreateWorkspaceContext } from "../../Contexts/CreateWorkspaceContext";
 
 export default function HomeComponent() {
 
-  const { isLoading } = useContext(HomeContext);
-  const { loading, response, error, sendRequest } = useFetch();
-  const [user, setUser] = useState(null);
-  const [initialLoading, setInitialLoading] = useState(true);
+  const { isLoading } = useContext(HomeContext)
+  const { loading, response, error, sendRequest } = useFetch()
+  const [initialLoading, setInitialLoading] = useState(true)
+  
+  const {new_workspace,name,members,user,image,setImageUrl,setName,setUser,setMembers
+          ,setNewWorkspace} = useContext(CreateWorkspaceContext)
 
   const navigate=useNavigate()
 

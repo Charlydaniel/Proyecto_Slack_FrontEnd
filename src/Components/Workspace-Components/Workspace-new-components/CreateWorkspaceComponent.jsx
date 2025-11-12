@@ -89,7 +89,6 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
                     if (current_field.VAR === 'members') {
                         setImageUrl(null)
                     }
-
                     form_state["input-data"] = ""
                     navigate(`/api/workspaces/create/workspace/` + nextStep)
 
@@ -144,8 +143,7 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
                 try{
                     if(new_workspace){
                         const inviter_email=user_data?.email
-                        const response_mem = await inviteMembers(new_workspace,members,inviter_email)
-                        navigate('/api/workspaces/'+new_workspace) 
+                        const response_mem = await sendRequest(()=>inviteMembers(new_workspace,members,inviter_email))
                         if(response_mem){
                             setSending(true)
                         } 
@@ -159,7 +157,6 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
             invite()
             },[new_workspace]
         )
-
         useEffect(() => {
                 setIsMail(false);
                 form_state["input-data"] = ''; 
@@ -211,7 +208,13 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
                 }
             }, [form_state["input-data"]]
         )
-
+        useEffect(
+            ()=>{
+                if(issending){
+                navigate('/api/workspaces/'+new_workspace) 
+                }
+            },[issending]
+        )
 
         if (loading || isLoading) {
             return (
