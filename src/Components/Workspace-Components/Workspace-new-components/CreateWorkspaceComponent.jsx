@@ -126,7 +126,7 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
             const last_step=async()=>{
                 try{
                     if(uploaded){
-                        const created_workspace = useFetch(()=>CreateWorkspace(name,image))
+                        const created_workspace = useFetch(CreateWorkspace(name,image))
                         if(response){
                             setNewWorkspace(created_workspace.workspace_id) 
                         }
