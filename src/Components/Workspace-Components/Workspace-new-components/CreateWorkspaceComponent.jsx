@@ -28,7 +28,7 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
         const {new_workspace,name,members,user,image,setImageUrl,setName,setUser,setMembers
                 ,setNewWorkspace} = useContext(CreateWorkspaceContext)
         
-        const { sendRequest, loading, response, error } = useFetch()
+        const { sendRequest,loading, response, error } = useFetch()
     
         const { step } = useParams()
         const navigate = useNavigate()
@@ -73,8 +73,6 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
                 setMembers([...members, form_state["input-data"]])
 
                 form_state["input-data"] = ''; 
-            
-
         }
 
         const onData = async (form_state) => {
@@ -98,10 +96,7 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
 
                 }
                 else {
-                    /* DATA-TEST*/
-    /*                 console.log('NOMBRE:', name)
-                    console.log('IMAGEN:', image)
-                    console.log('MIEMBROS', members)  */
+
                     
                     if(image){
                         try {
@@ -126,12 +121,14 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
             const last_step=async()=>{
                 try{
                     if(uploaded){
-                        const created_workspace = useFetch(CreateWorkspace(name,image))
-                        if(response){
-                            setNewWorkspace(created_workspace.workspace_id) 
+                        const created_workspace = await sendRequest(() => CreateWorkspace(name,image))
+                        
+                        if(created_workspace && created_workspace.workspace_id){
+                            await setNewWorkspace(created_workspace.workspace_id) 
                         }
                         else{
-                            console.log('Error fetching create Workspace')
+                            
+                            console.log('Error fetching create Workspace: Not response')
                         }
                     }
                 }
@@ -162,19 +159,14 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
                 }
             invite()
             },[new_workspace]
-            )
-
-        useEffect(
-            ()=>{
-
-            },[image]
         )
+
         useEffect(() => {
                 setIsMail(false);
                 form_state["input-data"] = ''; 
             
         }, [location]
-        );
+        )
 
         const deleteMail = (email_todelete) => {
             setMembers(prev => prev.filter(member => member !== email_todelete))
@@ -206,6 +198,7 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
                 setIsMail(false)
             }, [members]
         )
+
         useEffect(
             () => {
                 if (regex.test(form_state["input-data"]) && step === '3' 
@@ -221,7 +214,7 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
         )
 
 
-        if (!current_field || loading) {
+        if (loading || isLoading) {
             return (
                 <div>
                     <Spinner />
@@ -339,13 +332,13 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
                                     </div>
                             }
                             {
-                            step === '3'
-                                ?
-                                <span className='notmember-message'>*Los usuarios que no son miembros solo seran invitados a Slack</span>
-                                :
-                                <div>
+                                step === '3'
+                                    ?
+                                    <span className='notmember-message'>*Los usuarios que no son miembros solo seran invitados a Slack</span>
+                                    :
+                                    <div>
 
-                                </div>
+                                    </div>
                             }
                             <div className='submit-area'>
 
@@ -354,13 +347,13 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
                                         <ImageUploader
                                             canUpload={form_state["input-data"]?.length >= min_length}
                                             onFileReady={({ file, previewUrl }) => setImageUrl(file)}
-                                    />
+                                        />
                                         <button
                                             type="submit"
                                             className="right-data-button"
                                             disabled={
                                                 !(
-                                                    form_state["input-data"]?.length >= min_length 
+                                                    form_state["input-data"]?.length >= min_length
                                                     && image
                                                 )
                                             }

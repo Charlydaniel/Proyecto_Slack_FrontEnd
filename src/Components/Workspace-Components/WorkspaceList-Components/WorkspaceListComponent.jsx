@@ -65,9 +65,6 @@ export default function WorkspaceListComponent() {
     <ErrorComponent />
   }
 
-console.log("WORKSPACES:", workspaces)
-console.log("MEMBERS:", members)
-
   return (
           <div className="Workspace-list-body">
             <ul className="workspace-list">

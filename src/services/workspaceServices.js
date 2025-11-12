@@ -32,7 +32,7 @@ export async function CreateWorkspace(name, image) {
     if (!response_data.ok) {
         throw new Error(response_data.message)
     }
-    console.log(response_data)
+    
     return response_data
 }
 export const getWorkspaceList = async () => {
@@ -49,7 +49,6 @@ export const getWorkspaceList = async () => {
     )
     const response_data = await response_http.json()
 
-    console.log('WP DATA: ', response_data)
     if (!response_http.ok) {
         throw new Error(response_data.message || "Error en el servicio de Workspaces")
     }
