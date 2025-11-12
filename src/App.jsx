@@ -14,6 +14,7 @@ import WorkspaceCompoenent from './Components/Workspace-Components/Workspace-com
 import CreateWorkspaceBackground from './Components/Workspace-Components/Workspace-new-components/CreateWorkspaceBackground'
 import ImageUploader from './Components/Image-Add-Components/ImageAddComponent'
 import DeleteComponentBackground from './Components/Workspace-Components/Delete-workspace-components/DeleteComponentBackground'
+import WorkspaceNavComponent from './Components/Workspace-Components/Workspace-nav-components/WorkspaaceNavComponent'
 
 
 
@@ -29,6 +30,13 @@ function App() {
 
        <Routes>
 
+
+        <Route
+          path='/nav'
+          element={<WorkspaceNavComponent />}
+        />
+
+        
         <Route
           path='/api/workspaces/create/workspace/:step'
           element={<CreateWorkspaceBackground />}

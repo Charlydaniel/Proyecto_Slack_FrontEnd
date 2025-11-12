@@ -14,6 +14,7 @@ import { RiHistoryLine, RiHome3Fill } from "react-icons/ri"
 import { IoSearchOutline } from "react-icons/io5"
 import { useContext, useEffect, useState } from 'react'
 import ErrorComponent from '../../Error-components/ErrorComponent'
+import WorkspaceNavComponent from '../Workspace-nav-components/WorkspaaceNavComponent'
 
 
 
@@ -149,11 +150,9 @@ export default function WorkspaceCompoenent() {
               </div>
             </div>
           </div>
-
         </nav>
-
+          <WorkspaceNavComponent/>
         <div className='workspace-chats'>
-
         </div>
       </div>
     </div>
