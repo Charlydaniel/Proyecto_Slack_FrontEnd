@@ -4,15 +4,42 @@
     box-sizing: border-box;
 }
 
+.chat-header-aside-right-block{
+    width: 30%;
+}
+.chat-header-aside-left{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: start;
+    height: 100%;
+    gap: 10px;
+    padding: 10px;
+}
+.chat-header-aside-right{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: end;
+    height: 100%;
+    gap: 10px;
+    padding: 10px;
+}
 .h1-preuab{
     color: black;
     font-size: 50px;
+}
+---long{
+width: 200px;
 }
 
 .chat-section-body{
     display: flex;
     flex-direction: column;
     width: 100%;
+    min-height: 100%;
+    min-width: 0;
+    background-color: white;
 }
 .chat-header-favorite{
 color: black;
@@ -27,13 +54,7 @@ font-size: 20px;
     height: 80px;
     justify-content: space-between;
 }
-.chat-header-left{
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    justify-content: space-around;
-    height: 100%;
-}
+
 .chat-header-channel{
     display: flex;
     color: black;
@@ -42,20 +63,49 @@ font-size: 20px;
 }
 .chat-header-favorite{
     display: flex;
-    width: 20px;
-    height: 20px;
     background-color: none;
     border-radius: 0;
     border: none;
     color: black;
 }
-.chat-header-button {
-    background-color: white;
-    height: 20px;
+.header-right{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    flex:4;
 }
-.--extra-short{
-    width: 10px;
-    height: 10px;
-    border: rgb(182, 180, 180) 0.2px solid;
-    border-radius: 5px;
+
+.chat-header-right-section-one{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 300px;
+    justify-content: start;
+    color: rgb(80, 79, 79);
+    padding: 0;
+    border: rgba(214, 212, 212, 0.541) 0.5px solid;
+    background-color: white;
+    padding: 10px;
+}
+.chat-header-right-section-two{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    width: 30%;
+    gap: 5px;
+}
+.chat-header-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+    color: rgb(65, 64, 64);
+    padding: 0;
+    border: rgba(214, 212, 212, 0.541) 0.5px solid;
+    background-color: white;
 }

@@ -26,14 +26,14 @@ export default function WorkspaceCompoenent() {
   const { response, ok, message, error, sendRequest } = useFetch()
   const [get_workspace_ok, setGetWorkspace] = useState(false)
   const { workspace_id } = useParams()
-  const {workspace,channel, WpSetChannel,WpSetWorkspace}=useContext(WorkspaceContext)
-  
+  const {workspace,channel,wpChannels, WpSetChannel, WpSetWorkspace,WpSetWpChannels} = useContext(WorkspaceContext)
+
 
   const navigate = useNavigate()
 
 
   const onDelete = () => {
-    navigate('/api/workspaces/delete/'+workspace.id)
+    navigate('/api/workspaces/delete/' + workspace.id)
   }
 
   useEffect(() => {
@@ -74,26 +74,29 @@ export default function WorkspaceCompoenent() {
     <div className='workspace-component'>
       <header className="workspaces-header">
         <nav className='workspaces-header-nav'>
-          <div className='nav-left'></div>
-          <div className='workspace-history-arrows'>
-            <FaArrowLeft className='arrow-history' />
-            <FaArrowRight className='arrow-history' />
-          </div>
-          <div className='workspace-history-view'>
-            <RiHistoryLine className='history-view' />
+          <div className='history-container'>
+            <div className='workspace-history-arrows'>
+              <FaArrowLeft className='arrow-history' />
+              <FaArrowRight className='arrow-history' />
+              <RiHistoryLine className='history-view' />
+            </div>
           </div>
           <div className='workspace-search-container'>
-            <input
-              placeholder={`Buscar en ${workspace?.nombre || 'Buscar..'}`}
-              className="workspace-search"
-              type="text"
-            />
-            <IoSearchOutline className='workspace-search-button' />
+            <div className='search-container'>
+              <input
+                placeholder={`Buscar en ${workspace?.nombre || 'Buscar..'}`}
+                className="workspace-search"
+                type="text"
+              />
+              <div className='workspace-search-button'>
+                <IoSearchOutline className='history-view' />
+              </div>
+            </div>
+          </div>
+          <div className='header-right'>
+            <GoQuestion className='question-icon' />
           </div>
         </nav>
-        <div className='header-right'>
-          <GoQuestion className='question-icon' />
-        </div>
       </header>
 
       <div className='workspace-body'>
@@ -128,7 +131,6 @@ export default function WorkspaceCompoenent() {
               </div>
               <span className='workspace-icon-left-nav-span'>Actividad</span>
             </div>
-
             <div>
               <div className='workspace-nav-left-button'>
                 <ImFilesEmpty className='workspace-icon-left-nav' />
@@ -154,10 +156,10 @@ export default function WorkspaceCompoenent() {
             </div>
           </div>
         </nav>
-          <WorkspaceNavComponent/>
-        <div className='workspace-chats'>
-                <ChatComponent/>
-        </div>
+        <WorkspaceNavComponent />
+
+        <ChatComponent />
+
       </div>
     </div>
   )

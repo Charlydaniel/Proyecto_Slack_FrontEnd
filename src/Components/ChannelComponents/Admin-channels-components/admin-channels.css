@@ -1,0 +1,16 @@
+
+
+
+.body-admin-channel{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+.popup-menu-admin-channels{
+    display: flex;
+    flex-direction: row;
+    background-color: aquamarine;
+}

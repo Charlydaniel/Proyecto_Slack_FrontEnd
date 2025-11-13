@@ -14,9 +14,8 @@ import WorkspaceCompoenent from './Components/Workspace-Components/Workspace-com
 import CreateWorkspaceBackground from './Components/Workspace-Components/Workspace-new-components/CreateWorkspaceBackground'
 import ImageUploader from './Components/Image-Add-Components/ImageAddComponent'
 import DeleteComponentBackground from './Components/Workspace-Components/Delete-workspace-components/DeleteComponentBackground'
-import WorkspaceNavComponent from './Components/Workspace-Components/Workspace-nav-components/WorkspaaceNavComponent'
-
-
+import AdminChannelComponent from './Components/ChannelComponents/Admin-channels-components/AdminChannelsComponent'
+import AdminChannelsBackground from './Components/ChannelComponents/Admin-channels-components/AdminChannelsBckground'
 
 
 function App() {
@@ -28,7 +27,12 @@ function App() {
   return (
 
 
-       <Routes>
+    <Routes>
+
+        <Route
+          path='/admin-channels'
+          element={<AdminChannelsBackground/>}
+        />
 
         <Route
           path='/api/workspaces/create/workspace/:step'

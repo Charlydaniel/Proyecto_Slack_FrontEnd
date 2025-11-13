@@ -8,40 +8,42 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { LuFilePenLine } from "react-icons/lu";
 import { getChanelsList } from '../../../services/ChannelService';
 import useFetch from '../../../Hooks/UseFetch';
-import { CreateWorkspaceContext } from '../../../Contexts/CreateWorkspaceContext';
-import { useParams } from 'react-router-dom';
-import { LoginContext } from '../../../Contexts/LoginContext';
+import { useNavigate, useParams } from 'react-router-dom';
 import { WorkspaceContext } from '../../../Contexts/WorkspaceContext';
+import { CiMenuKebab } from "react-icons/ci";
+
 
 
 export default function WorkspaceNavComponent() {
 
     const [openChannels, setOpenChannels] = useState(false)
+    const [openOptionsChannel, setOpenOptionsChannel] = useState(false)
     const [openChats, setOpenChats] = useState(false)
-    const [channelList, SetChannel] = useState([])
     const { sendRequest, loading, response, error } = useFetch()
-    const {workspace,channel, WpSetChannel, WpSetWorkspace}=useContext(WorkspaceContext)
-
+    const { workspace, channel, wpChannels, WpSetChannel, WpSetWorkspace, WpSetWpChannels } = useContext(WorkspaceContext)
 
     const { workspace_id } = useParams()
     const id_workspace = Number(workspace_id)
+    const navidate = useNavigate()
 
 
-    const onOpenItem =  ()=>{
+    const onOpenItem = () => {
         setOpenChannels(!openChannels)
     }
-    const gotoChannel=(ch_id)=>{
+    const gotoChannel = (ch_id) => {
         WpSetChannel(ch_id)
-        console.log(ch_id)
+    }
+    const GoTodeleteChannel = () => {
+        navidate('/admin-channels')
     }
 
     useEffect(
         () => {
             const getchannels = async () => {
-                
-                    const result = await sendRequest(() => getChanelsList(id_workspace))
-                    const channels_data=result.data
-                    SetChannel(channels_data)
+
+                const result = await sendRequest(() => getChanelsList(id_workspace))
+                const channels_data = result.data
+                WpSetWpChannels(channels_data)
             }
             getchannels()
         }, []
@@ -81,42 +83,71 @@ export default function WorkspaceNavComponent() {
             </section>
             <section className='workspace-nav-channes'>
                 <div className='workspace-nav-channes-list'>
-                    <button className="workspace-nav-dropdown-btn"
-                        onClick={onOpenItem}>
-                        {
-                            !openChannels
-                                ?
-                                <div>► Canales</div>
-                                :
-                                <div> ▼   Canales</div>
-                        }
-                    </button>
-
+                    <div className='workspace-nav-channes-list-options'>
+                        <button className="workspace-nav-dropdown-btn"
+                            onClick={onOpenItem}>
+                            {
+                                !openChannels
+                                    ?
+                                    <div>► Canales</div>
+                                    :
+                                    <div> ▼   Canales</div>
+                            }
+                        </button>
+                        <div className='popup-menu'
+                            onMouseLeave={() => setOpenOptionsChannel(false)}
+                        >
+                            <button className='workspace-nav-opt-btn'
+                                onClick={() => setOpenOptionsChannel(!openOptionsChannel)}>
+                                {
+                                    !openOptionsChannel
+                                        ?
+                                        <CiMenuKebab className='menu-icon' />
+                                        :
+                                        <></>
+                                }
+                            </button>
+                            {
+                                openOptionsChannel
+                                    ?
+                                    <div>
+                                        <div className='workspace-nav-dropdown-list'>
+                                            <ul className='ul-channels-menu'>
+                                                <li onClick={() => GoTodeleteChannel()}>
+                                                    Administrar canales
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    :
+                                    <div>
+                                    </div>
+                            }
+                        </div>
+                    </div>
                     {openChannels &&
                         (
                             <ul className='workspace-nav-dropdown-list'>
                                 {
-                                    channelList.length > 0
-                                    ?
-                                    (
-                                    
-                                    channelList.map(
-
-                                        (ch)=>
-                                        (   
-                                            <li 
-                                            onClick={()=>gotoChannel(ch.nombre)}
-                                            key={ch.id}
-                                            >
-                                            {ch.nombre}
-                                            </li>
+                                    wpChannels.length > 0
+                                        ?
+                                        (
+                                            wpChannels.map(
+                                                (ch) =>
+                                                (
+                                                    <li
+                                                        onClick={() => gotoChannel(ch.nombre)}
+                                                        key={ch.id}
+                                                    >
+                                                        {ch.nombre}
+                                                    </li>
+                                                )
+                                            )
                                         )
+                                        :
+                                        (
+                                            <li> Sin canales ...</li>
                                         )
-                                    )
-                                    :
-                                    (
-                                    <li> Sin canales ...</li>
-                                    )
                                 }
 
                             </ul>
@@ -127,7 +158,7 @@ export default function WorkspaceNavComponent() {
                     <button className="workspace-nav-dropdown-btn"
                         onClick={() => setOpenChats(!openChats)}>
                         {
-                            openChats
+                            !openChats
                                 ?
                                 <div>► Chats</div>
                                 :
