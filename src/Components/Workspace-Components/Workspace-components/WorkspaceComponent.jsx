@@ -15,6 +15,8 @@ import { IoSearchOutline } from "react-icons/io5"
 import { useContext, useEffect, useState } from 'react'
 import ErrorComponent from '../../Error-components/ErrorComponent'
 import WorkspaceNavComponent from '../Workspace-nav-components/WorkspaaceNavComponent'
+import { WorkspaceContext } from '../../../Contexts/WorkspaceContext'
+import ChatComponent from '../../ChannelComponents/ChannelComponents'
 
 
 
@@ -22,9 +24,10 @@ export default function WorkspaceCompoenent() {
 
   const { isLoading } = useContext(LoginContext)
   const { response, ok, message, error, sendRequest } = useFetch()
-  const [workspace, setWorkspace] = useState(null)
   const [get_workspace_ok, setGetWorkspace] = useState(false)
   const { workspace_id } = useParams()
+  const {workspace,channel, WpSetChannel,WpSetWorkspace}=useContext(WorkspaceContext)
+  
 
   const navigate = useNavigate()
 
@@ -40,7 +43,7 @@ export default function WorkspaceCompoenent() {
         const id = Number(workspace_id)
         const result = await sendRequest(() => getWorkspace(id))
         if (result.data.workspace) {
-          setWorkspace(result.data.workspace)
+          WpSetWorkspace(result.data.workspace)
           setGetWorkspace(result.ok)
         }
       } catch (err) {
@@ -153,6 +156,7 @@ export default function WorkspaceCompoenent() {
         </nav>
           <WorkspaceNavComponent/>
         <div className='workspace-chats'>
+                <ChatComponent/>
         </div>
       </div>
     </div>

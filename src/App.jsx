@@ -30,13 +30,6 @@ function App() {
 
        <Routes>
 
-
-        <Route
-          path='/nav'
-          element={<WorkspaceNavComponent />}
-        />
-
-        
         <Route
           path='/api/workspaces/create/workspace/:step'
           element={<CreateWorkspaceBackground />}

@@ -49,6 +49,7 @@ export default function LoguinComponent({isRegister}) {
             if (response && response.ok) {
                 if(!isRegister){
                     localStorage.setItem(LOCAL_STORAGE_KEYS.AUTH_TOKEN, response.data.authorization_token)
+                    console.log(response.data)
                     setUserData(response.data)
                     navigate('/home')
                 }

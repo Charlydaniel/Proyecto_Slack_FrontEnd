@@ -11,9 +11,10 @@ import { CreateWorkspace } from '../../../services/workspaceServices.js'
 import { inviteMembers } from '../../../services/memberServices.js'
 import { LoginContext } from '../../../Contexts/LoginContext.jsx' 
 import useFetch from '../../../Hooks/UseFetch.jsx'
+import { AiFillCloseCircle } from "react-icons/ai";
 
 
-    export default function CreateWorkspaceComponent() {
+export default function CreateWorkspaceComponent() {
 
         const [current_field, setCurrentField] = useState('')
         const [ismail, setIsMail] = useState(false)
@@ -74,6 +75,9 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
                 form_state["input-data"] = ''; 
         }
 
+        const OnCLose = ()=>{
+            navigate('/home')
+        }
         const onData = async (form_state) => {
 
                 const nextStep = (Number(step) + 1)
@@ -101,7 +105,7 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
                             const resized = await resizeImage(image, 1200, 1200);
                             const uploadedFile = await uploadImageToCloudinary(resized)
                             if (uploadedFile?.secure_url) {
-                                setImageUrl(uploadedFile.secure_url)
+                                await setImageUrl(uploadedFile.secure_url)
                                 setUploaded(true)
                             }
                         } catch (error) {
@@ -118,9 +122,11 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
             ()=>{
             const last_step=async()=>{
                 try{
+                    console.log('UPLOADED: ', uploaded)
                     if(uploaded){
-                        const created_workspace = await sendRequest(() => CreateWorkspace(name,image))
-                        
+                        console.log(name,' - ',image)
+                        const created_workspace=await sendRequest(() =>CreateWorkspace(name,image))
+                        console.log(created_workspace)
                         if(created_workspace && created_workspace.workspace_id){
                             await setNewWorkspace(created_workspace.workspace_id) 
                         }
@@ -137,6 +143,7 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
             last_step()
             },[uploaded]
         )  
+
         useEffect(
             ()=>{
             const invite=async()=>{
@@ -230,6 +237,7 @@ import useFetch from '../../../Hooks/UseFetch.jsx'
                 </aside>
                 <div className="right-container">
                     <div className='right-container-sup'>
+                        <AiFillCloseCircle onClick={OnCLose}/>
                     </div>
 
                     <div className='rigth-content'>

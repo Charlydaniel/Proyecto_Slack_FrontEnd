@@ -14,7 +14,6 @@ export default function WorkspaceListComponent() {
   const [workspaces, setWorkspaces] = useState([])
   const [members, setMembers] = useState([])
 
-
   useEffect(
       () => {
       const fetchMembers = async () => {
@@ -57,7 +56,7 @@ export default function WorkspaceListComponent() {
   )
 
 
-  if (loading) {
+  if (loading || !workspaces || !members) {
     return <Spinner />
   }
 

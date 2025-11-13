@@ -7,6 +7,7 @@ import ErrorComponent from '../../Error-components/ErrorComponent';
 import useFetch from '../../../Hooks/UseFetch';
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
+import Spinner from '../../Spinner/Spinner';
 
 
 
@@ -45,14 +46,17 @@ export default function WorkspaceItem({nombre,imagen,id,filtrados}){
 
   useEffect(()=>{
 
-          try{
-                 setMembersTeam(filtrados)
-                
-              }
-          catch(err){
-          }
+      const sendSync = async () => {
+          try {
+              const result = await sendRequest(() => setMembersTeam(filtrados))
 
-      },[filtrados]) 
+          }
+          catch (err) {
+          }
+      }
+        sendSync()
+
+  }, [filtrados]) 
 
 
   if(error){

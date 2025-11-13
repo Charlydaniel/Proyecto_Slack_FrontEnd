@@ -9,13 +9,13 @@ const WORKSPACE_URL = {
     DELETE: '/api/workspaces/delete/'
 }
 
-export async function CreateWorkspace(name, image) {
+export async function CreateWorkspace(name,image) {
 
     const workspace = {
         name,
         image
     }
-
+    
     const response_http = await fetch(
         `${ENVIRONMENT.URL_API}${WORKSPACE_URL.CREATE_WORKSPACE}`,
         {
@@ -26,13 +26,14 @@ export async function CreateWorkspace(name, image) {
             },
             body: JSON.stringify(workspace)
         }
-    )
-
+    );
+  
     const response_data = await response_http.json()
+    console.log('respuesta: ',response_data)
+
     if (!response_data.ok) {
         throw new Error(response_data.message)
     }
-    
     return response_data
 }
 export const getWorkspaceList = async () => {
@@ -91,7 +92,7 @@ export async function deleteWorkspace(workspace_id) {
     )
     const response_data = await response_http.json()
 
-    console.log(response_data)
+
     if (!response_http.ok) {
         throw new Error(response_data.message || 'Error al eliminar el workspace')
 

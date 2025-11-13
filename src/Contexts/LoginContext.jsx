@@ -19,7 +19,7 @@ const LoginProvider = ({ children }) => {
   }, [])
 
   return (
-    <LoginContext.Provider value={{ isLoading,url_register,user_data,setUserData}}>
+    <LoginContext.Provider value={{isLoading,url_register,user_data,setUserData}}>
       {children}
     </LoginContext.Provider>
   );
