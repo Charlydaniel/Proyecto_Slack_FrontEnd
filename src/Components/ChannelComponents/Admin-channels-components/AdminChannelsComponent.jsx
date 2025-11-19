@@ -41,7 +41,6 @@ const AdminChannelComponent = () => {
         setOpenChannels(!openChannels)
     }
 
-    console.log(workspace)
     const handleSelectedChannel = (name,id) => {
 
         setSelectedChannel({ name:name , id:id })
@@ -177,12 +176,13 @@ const {
                         (
                         <div className="admin-channel-options">
                             <div className='admin-channel-buttons'>
-                                <button 
+                                <button className='admin-channel-button'
                                 onClick={()=>setDeleteOk(true)}>
                                     Eliminar
                                     <RiDeleteBin6Line />
                                 </button>
-                                <button  
+                                <button 
+                                className='admin-channel-button' 
                                 type="submit"
                                 onClick={()=>setModify(true)} >
                                     Renombrar
@@ -218,7 +218,10 @@ const {
                                             </button>
                                             <button 
                                             className='admin-channel-rename-button --red'
-                                            onClick={()=>setModify(false)}
+                                            onClick={()=>{
+                                                setModify(false)
+                                                setDeleteOk(false)
+                                                }}
                                             >
                                                 <TbCancel />
                                             </button>    
@@ -241,7 +244,10 @@ const {
                                         </button>
                                         <button 
                                         className='admin-channel-rename-button --red'
-                                        onClick={()=>setDeleteOk(false)}>
+                                        onClick={()=>{
+                                                        setDeleteOk(false)
+                                                        setModify(false)
+                                                    }}>
                                             <TbCancel />
                                         </button>
                                     </div>
