@@ -127,7 +127,7 @@ const {
                 <div className='titles-container'>
                     <h1 className='admin-channel-title-admin-channel'> Administrar canales de</h1>
                     <div className='admin-channel-data-workspace-container'>
-                        <img className="admin-channel-img-workspace" src={workspace.img_workspace} alt="img-workspace" />
+                        <img className="admin-channel-img-workspace" src={workspace?.img_workspace} alt="img-workspace" />
                         <h2 className='subtitle-admin-channel'>{workspace?.nombre}</h2>
                     </div>
                 </div>
