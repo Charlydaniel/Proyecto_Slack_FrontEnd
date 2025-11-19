@@ -35,6 +35,7 @@ export const updateChanel = async (workspace_id,channel_id,update_data) => {
     
 const response_http = await fetch(
 
+
     `${ENVIRONMENT.URL_API}${CHANNEL_URL.UPDATE_CHANNEL}${workspace_id}`,
     {
         method: HTTP_METHODS.POST,
@@ -47,6 +48,6 @@ const response_http = await fetch(
     }
 )
     const response_data = await response_http.json()
- console.log(response_data )
+
     return response_data
 }

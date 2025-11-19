@@ -114,7 +114,7 @@ button:disabled{
 }
 .right-container{
     background-color: white;
-    padding-right: 10px;
+    padding-right: 350px;
     border-radius: 0 10px 10px 0;
     width: 100%;
 }
@@ -122,7 +122,7 @@ button:disabled{
 
 .right-container-sup{
     display: flex;
-    height: 100px;
+    height: 50px;
     background-color: white;
     width: 100%;
     color: #532755;
@@ -227,6 +227,9 @@ input {
 
   .right-title{
     font-size: 40px;
+  }
+  .right-container{
+    padding-right: 0;
   }
 
 }

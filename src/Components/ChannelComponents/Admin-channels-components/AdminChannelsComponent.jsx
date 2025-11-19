@@ -35,6 +35,7 @@ const AdminChannelComponent = () => {
     const [modify,setModify]=useState(false)
     const [deleteOk,setDeleteOk]=useState(false)
     const [updated,setUpdated]=useState(false)
+    const [Deleted,setDeleted]=useState(false)
     
     const onOpenItem = () => {
         setOpenChannels(!openChannels)
@@ -42,8 +43,10 @@ const AdminChannelComponent = () => {
 
     
     const handleSelectedChannel = (name,id) => {
-        setSelectedChannel({ name:name,id:id })
+
+        setSelectedChannel({ name:name , id:id })
         setOpenChannels(false)
+
     }
      const onUpdate = async (form_state) => {
             
@@ -60,13 +63,15 @@ const AdminChannelComponent = () => {
     }
     
     const onDelete = async () => {
+
         const result= await sendRequest(() => updateChanel(workspace_id,selectedChannel.id,{activo:0}))
                     
             if (result){
                 setUpdated(prev => !prev)
                 setModify(false)
                 setSelectedChannel({ name: 'Selecciona el canal', id: null })
-            }   
+                setDeleted(true)
+            }
     }
 
     
@@ -220,11 +225,12 @@ const {
                         )                          
                 }
                 {
-                    deleteOk
+                    deleteOk 
+                    && selectedChannel.id
                             &&
                             (
                                 <div className='admin-channel-delete-form-container'>
-                                    <span>¿Estas segudo de eliminar {selectedChannel.nombre} ?</span>
+                                    <span>¿Estas seguro de eliminar {selectedChannel.nombre} ?</span>
                                     <div className='admin-channel-delete-form-buttons'>
                                         <button className='admin-channel-rename-button --green'
                                         type='submit'>
@@ -238,6 +244,24 @@ const {
                                     </div>
                                 </div>
                             )
+                }
+                {
+                    Deleted
+                    ?
+                    !selectedChannel.id 
+                    && <span> Canal eliminado</span>
+                    :
+                    <div>
+                    </div>
+                }
+                {
+                    !response
+                    ? 
+                    error && <span style={{color:'red'}}>{error.message}</span> 
+                    :
+                    <div>
+
+                    </div>             
                 }
             </form>
             </div>
