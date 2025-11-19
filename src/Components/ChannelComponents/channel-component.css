@@ -4,9 +4,10 @@
     box-sizing: border-box;
 }
 
-.chat-header-aside-right-block{
-    width: 30%;
+.chat-header-right-section-one--small-width.chat-header-button{
+    display: none;
 }
+
 .chat-header-aside-left{
     display: flex;
     flex-direction: row;
@@ -14,6 +15,8 @@
     justify-content: start;
     height: 100%;
     gap: 10px;
+    text-align: center;
+    align-items: center;
     padding: 10px;
 }
 .chat-header-aside-right{
@@ -21,6 +24,7 @@
     flex-direction: row;
     width: 50%;
     justify-content: end;
+    align-items: center;
     height: 100%;
     gap: 10px;
     padding: 10px;
@@ -80,20 +84,18 @@ font-size: 20px;
     flex-direction: row;
     align-items: center;
     gap: 10px;
-    width: 300px;
     justify-content: start;
     color: rgb(80, 79, 79);
-    padding: 0;
     border: rgba(214, 212, 212, 0.541) 0.5px solid;
     background-color: white;
     padding: 10px;
+    width: auto;
 }
 .chat-header-right-section-two{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: end;
-    width: 30%;
     gap: 5px;
 }
 .chat-header-button {
@@ -109,3 +111,88 @@ font-size: 20px;
     border: rgba(214, 212, 212, 0.541) 0.5px solid;
     background-color: white;
 }
+
+
+
+@media(max-width:1050px){
+ 
+.chat-header-aside-right{
+    width: 70%;
+}
+}
+
+@media(max-width:900px){
+ 
+.chat-header-right-section-one{
+    display: none;
+}
+}
+
+@media(max-width:700px){
+    .chat-header-aside-right{
+        width: 50px;
+    }
+    .chat-header-channel{
+        font-size: 15px;
+    }
+    .chat-header-button ,.chat-header-favorite{
+        font-size: 12px;
+    }
+    .workspace-icono{
+        width: 35px;
+        height: 35px;
+    }
+}
+@media(max-width:500px){
+
+    .chat-header{
+        flex-direction: column;
+        height: 30px;
+        padding: 10px;
+
+    }
+    .chat-header{
+        margin: 0;
+        padding: 0;
+    }
+    .chat-header-channel{
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        color: white;
+        padding-right: 40px;
+    }
+
+    .chat-header-button , .chat-header-favorite{
+       background: none;
+       border: none;
+       color: white;
+    }
+    .admin-channe-slack-icon{
+        width: 100%;
+        height: 20px;
+    }
+    .chat-header-aside-left{
+        background-color: #542857;
+    }
+    .chat-header-aside-right{
+        background-color: #c8acca;
+    }
+    .chat-header-aside-left ,.chat-header-aside-right{
+        width: 100%;
+        padding-left: 0;
+    }
+}
+@media(max-width:350px){
+
+    .chat-header-button{
+        width: 20px;
+        height: 20px
+    }
+    .chat-header-channel{
+        font-size: 12px;
+    }
+
+}
+
+

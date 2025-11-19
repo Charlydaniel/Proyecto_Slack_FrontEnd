@@ -1,58 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: "Roboto", sans-serif;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
 }
 
-:root{
-    --options-color: rgb(212, 211, 211) ;
+:root {
+  --options-color: rgb(212, 211, 211);
 }
-.workspace-nav{
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    background-color: #542857;
-    color: var(--options-color);
-    height: 100vh;
-    gap: 10px;
-    padding: 15px;
+
+.workspace-nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #542857;
+  color: var(--options-color);
+  height: 100vh;
+  gap: 10px;
+  padding: 15px;
 }
-.workspace-nav-option{
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
+
+.workspace-nav-option {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
 }
-.workspace-nav-options{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
+
+.workspace-nav-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
 }
-.workspace-nav-header{
-    display:  flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-    justify-content: space-between;
+
+.workspace-nav-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
 }
-.workspace-nav-hr{
-   height: 1px;
-   border: none;
-   background-color: var(--options-color);
+
+.workspace-nav-hr {
+  height: 1px;
+  border: none;
+  background-color: var(--options-color);
 }
-.workspace-nav-name{
-    font-weight: 900;
-    font-size: 18px;
+
+.workspace-nav-name {
+  font-weight: 900;
+  font-size: 18px;
 }
-.workspace-nav-name-options{
-    display: flex;
-    flex-direction: row;
-    gap:10px;
+
+.workspace-nav-name-options {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
+
 .workspace-nav-channes {
   position: relative;
   display: flex;
@@ -62,7 +70,7 @@
   font-family: "Roboto", sans-serif;
 }
 
-.workspace-nav-channes-list-options{
+.workspace-nav-channes-list-options {
 
   display: flex;
   flex-direction: row;
@@ -72,12 +80,12 @@
   height: 25px;
 }
 
-.workspace-nav-channes-list-options:hover{
+.workspace-nav-channes-list-options:hover {
 
   background-color: #e0d9d969;
 }
 
-.workspace-nav-opt-btn{
+.workspace-nav-opt-btn {
 
   background-color: rgba(255, 255, 255, 0);
   width: 30px;
@@ -86,25 +94,27 @@
 
 }
 
-.popup-menu:hover{
+.popup-menu:hover {
   background-color: rgba(216, 215, 215, 0.877);
   position: relative;
   z-index: 10;
   border-radius: 5px;
 }
 
-li{
-  cursor:pointer;
+li {
+  cursor: pointer;
 }
 
-.workspace-nav-opt-btn :hover{
+.workspace-nav-opt-btn :hover {
   background-color: #83838338;
 }
-.menu-icon{
+
+.menu-icon {
   color: white;
   font-size: 20px;
 }
-.workspace-nav-dropdown-btn{
+
+.workspace-nav-dropdown-btn {
   background-color: transparent;
   color: #ddd;
   border: none;
@@ -117,17 +127,18 @@ li{
   justify-content: space-between;
 
 }
-.ul-channels-menu{
+
+.ul-channels-menu {
   background-color: #54285760;
 }
+
 .workspace-nav-dropdown-list {
   width: auto;
   list-style: none;
   padding: 0;
   overflow: hidden;
-  
-}
 
+}
 
 .workspace-nav-dropdown-list li {
   padding: 10px 14px;
@@ -136,5 +147,35 @@ li{
   color: white;
 }
 
+.workspace-nav-container {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+}
 
+@media(max-width:768px) {
 
+  .Open-nav-Button {
+    display: flex;
+    width: 10px;
+    border: none;
+    background-color: #54285793;
+    border-radius: 0;
+    font-size: 12px;
+    height: 100vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+.workspace-nav-name{
+  font-size: 15px;
+}
+.workspace-nav-button-span{
+  font-size: 12px;
+}
+.workspace-nav-container{
+  width: 300px;
+}
+
+}

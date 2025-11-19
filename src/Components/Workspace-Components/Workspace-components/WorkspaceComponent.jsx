@@ -26,7 +26,7 @@ export default function WorkspaceCompoenent() {
   const { response, ok, message, error, sendRequest } = useFetch()
   const [get_workspace_ok, setGetWorkspace] = useState(false)
   const { workspace_id } = useParams()
-  const {workspace,channel,wpChannels, WpSetChannel, WpSetWorkspace,WpSetWpChannels} = useContext(WorkspaceContext)
+  const {IsMabileAndOpenNav,workspace,channel,wpChannels, WpSetChannel, WpSetWorkspace,WpSetWpChannels,SetIsMabileAndOpenNav} = useContext(WorkspaceContext)
 
 
   const navigate = useNavigate()
@@ -98,7 +98,6 @@ export default function WorkspaceCompoenent() {
           </div>
         </nav>
       </header>
-
       <div className='workspace-body'>
         <nav className="workspace-nav-left">
           <div className='workspace-nav-left-buttons-container'>
@@ -158,8 +157,12 @@ export default function WorkspaceCompoenent() {
         </nav>
         <WorkspaceNavComponent />
 
+      {!IsMabileAndOpenNav
+      ?
         <ChatComponent />
-
+        :
+        <></>
+      }
       </div>
     </div>
   )

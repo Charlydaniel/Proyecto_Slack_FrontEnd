@@ -90,26 +90,30 @@ export default function CreateWorkspaceComponent() {
                     else if (current_field.VAR === 'user') {
                         setUser(form_state["input-data"])
                     }
-                    if (current_field.VAR === 'members') {
-                        setImageUrl(null)
-                    }
+                     if (current_field.VAR === 'members') {
+                       setImageUrl(null)
+                    } 
+
                     form_state["input-data"] = ""
                     navigate(`/api/workspaces/create/workspace/` + nextStep)
 
                 }
                 else {
 
-                    
-                    if(image){
+
+                    if(Number(image.size)>0){
+                        
                         try {
                             const resized = await resizeImage(image, 1200, 1200);
+
                             const uploadedFile = await uploadImageToCloudinary(resized)
                             if (uploadedFile?.secure_url) {
                                 await setImageUrl(uploadedFile.secure_url)
                                 setUploaded(true)
                             }
                         } catch (error) {
-                            console.log(error)
+                           
+                            
                         } finally {
                             setLoading(false)
                         }
@@ -122,23 +126,15 @@ export default function CreateWorkspaceComponent() {
             ()=>{
             const last_step=async()=>{
                 try{
-                    console.log('UPLOADED: ', uploaded)
                     if(uploaded){
-                        console.log(name,' - ',image)
                         const created_workspace=await sendRequest(() =>CreateWorkspace(name,image))
-                        console.log(created_workspace)
                         if(created_workspace && created_workspace.workspace_id){
                             await setNewWorkspace(created_workspace.workspace_id) 
                         }
-                        else{
-                            
-                            console.log('Error fetching create Workspace: Not response')
-                        }
+
                     }
                 }
-                catch(error){
-                console.log(error)
-                }
+                catch(error){}
                 }
             last_step()
             },[uploaded]
@@ -147,7 +143,6 @@ export default function CreateWorkspaceComponent() {
         useEffect(
             ()=>{
             const invite=async()=>{
-                try{
                     if(new_workspace){
                         const inviter_email=user_data?.email
                         const response_mem = await sendRequest(()=>inviteMembers(new_workspace,members,inviter_email))
@@ -155,11 +150,6 @@ export default function CreateWorkspaceComponent() {
                             setSending(true)
                         } 
                     }
-                }
-                catch(error){
-                console.log(error)
-                }
-
                 }
             invite()
             },[new_workspace]
@@ -222,7 +212,6 @@ export default function CreateWorkspaceComponent() {
                 }
             },[issending]
         )
-
         if (loading || isLoading) {
             return (
                 <div>
@@ -378,9 +367,19 @@ export default function CreateWorkspaceComponent() {
                                         Continuar
                                     </button>
                                 )}
-
                             </div>
                         </form>
+                        <div>
+                            {
+                                !response
+                                ?
+                                error && <span style={{ color: 'red' }}>{error.message}</span>
+                                :
+                                <div>
+                                    
+                                </div>
+                            }
+                        </div>
                     </div>
                 </div>
 

@@ -30,7 +30,7 @@ function App() {
     <Routes>
 
         <Route
-          path='/admin-channels'
+          path='/admin-channels/:workspace_id'
           element={<AdminChannelsBackground/>}
         />
 

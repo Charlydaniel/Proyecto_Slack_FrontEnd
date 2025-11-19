@@ -10,11 +10,12 @@ const Workspaceprovider = ({ children }) => {
     const [workspace, WpSetWorkspace] = useState([])
     const [channel, WpSetChannel] = useState([])
     const [wpChannels, WpSetWpChannels] = useState([])
+    const [IsMabileAndOpenNav, SetIsMabileAndOpenNav] = useState(false)
 
 
     return (
         <WorkspaceContext.Provider 
-        value={{workspace,channel,wpChannels, WpSetChannel, WpSetWorkspace,WpSetWpChannels}}>
+        value={{IsMabileAndOpenNav,workspace,channel,wpChannels, WpSetChannel, WpSetWorkspace,WpSetWpChannels,SetIsMabileAndOpenNav}}>
             {children}
         </WorkspaceContext.Provider>
     )

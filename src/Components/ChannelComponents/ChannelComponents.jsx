@@ -29,11 +29,12 @@ const {workspace,channel,wpChannels, WpSetChannel, WpSetWorkspace,WpSetWpChannel
                     </h1>
                 </aside>
                 <aside className="chat-header-aside-right">
-                    <div className="chat-header-aside-right-block">
-                    </div>
                     <button className="chat-header-right-section-one">
                         <AiOutlineUserAdd />
                         Invita a compañeros de equipo
+                    </button>
+                    <button className="chat-header-right-section-one--small-width chat-header-button">
+                        <AiOutlineUserAdd />
                     </button>
                     <div className="chat-header-right-section-two">
                         <button className="chat-header-button">

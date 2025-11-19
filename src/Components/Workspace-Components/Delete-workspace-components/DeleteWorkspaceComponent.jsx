@@ -12,7 +12,6 @@ export default function DeleteWorkspace() {
 
   const { workspace_id } = useParams()
   const [workspace, setWorkspace] = useState('')
-  const [deleted,setDelete] = useState(false)
   const { sendRequest, loading, response, error } = useFetch()
   const navigate = useNavigate()
 
