@@ -110,6 +110,18 @@ border-radius: 40px;
     align-items: center;
     font-size: 20px;
 }
+.admin-channel-back{
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  font-size: 20px;
+  height: 10px;
+  color: var(---buttons-colors);
+}
+.admin-channel-back:hover{
+  transform: translatex(-3px);
+  font-size: 25px;
+}
 .admin-channel-button{
   background-color:var(---buttons-colors);
   color: white;

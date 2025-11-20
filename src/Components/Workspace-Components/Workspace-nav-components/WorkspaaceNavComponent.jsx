@@ -105,21 +105,26 @@ return (
                         </div>
                     </section>
                     <section className='workspace-nav-channes'>
-                        <div className='workspace-nav-channes-list'>
-                            <div className='workspace-nav-channes-list-options'>
-                                <button className="workspace-nav-dropdown-btn"
-                                    onClick={onOpenItem}>
-                                    {
-                                        !openChannels
-                                            ?
-                                            <div>► Canales</div>
-                                            :
-                                            <div> ▼   Canales</div>
-                                    }
-                                </button>
-                                <div className='popup-menu'
-                                    onMouseLeave={() => setOpenOptionsChannel(false)}
-                                >
+                        <div className='workspace-nav-channel-list'>
+                            <div className='workspace-nav-channel-list-options'>
+                                    <button className="workspace-nav-dropdown-btn"
+                                        onClick={onOpenItem}>
+                                        {
+                                            !openChannels
+                                                ?
+                                                <div>► 
+                                                    <span className='workspace-nav-dropdown-btn-tx'>
+                                                        Canales
+                                                    </span>
+                                                </div>
+                                                :
+                                                <div> ▼ 
+                                                    <span className='workspace-nav-dropdown-btn-tx'>
+                                                        Canales
+                                                    </span>
+                                                </div>
+                                        }
+                                    </button>
                                     <button className='workspace-nav-opt-btn'
                                         onClick={() => setOpenOptionsChannel(!openOptionsChannel)}>
                                         {
@@ -130,24 +135,27 @@ return (
                                                 <></>
                                         }
                                     </button>
+                            </div>
+                                    <div className='popup-menu'
+                                        onMouseLeave={() => setOpenOptionsChannel(false)}
+                                    >
                                     {
                                         openOptionsChannel
                                             ?
-                                            <div>
-                                                <div className='workspace-nav-dropdown-list'>
-                                                    <ul className='ul-channels-menu'>
-                                                        <li onClick={() => GoTodeleteChannel()}>
-                                                            Administrar canales
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                            <div className='workspace-nav-dropdown-list'>
+                                                <button className='workspace-nav-dropdown-list-close-button'
+                                                onClick={() => setOpenOptionsChannel(false)}>x</button>
+                                                <ul className='ul-channels-menu'>
+                                                    <li onClick={() => GoTodeleteChannel()}>
+                                                        Administrar canales
+                                                    </li>
+                                                </ul>
                                             </div>
                                             :
                                             <div>
                                             </div>
                                     }
-                                </div>
-                            </div>
+                                    </div>
                             {openChannels &&
                                 (
                                     <ul className='workspace-nav-dropdown-list'>

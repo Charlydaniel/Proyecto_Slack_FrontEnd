@@ -3,7 +3,7 @@ import './admin-channels.css'
 import useFetch from '../../../Hooks/UseFetch';
 import getWorkspace from '../../../services/workspaceServices';
 import Spinner from '../../Spinner/Spinner';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getChanelsList, updateChanel } from '../../../services/ChannelService';
 import { COMPONENTS } from '../../../constants/commonComponents.js'
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -11,6 +11,7 @@ import { SiGoogleforms } from "react-icons/si";
 import { FaCheck } from "react-icons/fa6";
 import { TbCancel } from "react-icons/tb";
 import useForm from '../../../Hooks/UseForm.jsx';
+import { MdOutlineArrowBack } from "react-icons/md";
 
 
     const FORM_FIELDS =
@@ -36,6 +37,7 @@ const AdminChannelComponent = () => {
     const [deleteOk,setDeleteOk]=useState(false)
     const [updated,setUpdated]=useState(false)
     const [Deleted,setDeleted]=useState(false)
+    const navigate = useNavigate()
     
     const onOpenItem = () => {
         setOpenChannels(!openChannels)
@@ -73,7 +75,10 @@ const AdminChannelComponent = () => {
             }
     }
 
-    
+    const comeBack = ()=>{
+        navigate('/api/workspaces/'+workspace.id)
+    }
+
 const {
   form_state: register_form_state,
   handleSubmit,
@@ -117,7 +122,12 @@ const {
     return (
 
         <div className="body-admin-channel">
-
+            <div 
+                className='admin-channel-back'
+                onClick={()=>comeBack()}
+                >
+                <MdOutlineArrowBack />
+            </div>
             <div className='admin-channel-container'>
                 <div className='admin-channel-slack-icon-container'>
                     <img src={COMPONENTS.HEADER_ICON} alt="slack Icon"

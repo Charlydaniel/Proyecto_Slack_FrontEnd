@@ -137,7 +137,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 80px;
-    height:100vh;
+
     background-color: var(--dark_color);
     gap: 15px;
     align-items: center;
@@ -301,6 +301,9 @@
     .workspace-search-container{
         width: 500px;
     }
+    .--profile{
+        height: 40px;
+    }
 }
 
 @media(max-width:750px){
@@ -311,7 +314,6 @@
     .header-right{
         width: 20px;
     }
-
 }
 
 
@@ -328,4 +330,24 @@
 .workspace-history-arrows{
     padding: 5px;
 }
+}
+
+@media(max-width:400px){
+    .arrow-history{
+        display: none;
+    }
+    .history-container{
+        padding-left: 10px;
+    }
+    .nav-inf-section{
+        width: 25px;
+        height: 25px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .workspace-icon-left-nav{
+        width: 15px;
+        height: 15px;
+    }
 }
